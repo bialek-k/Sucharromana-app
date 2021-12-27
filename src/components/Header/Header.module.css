@@ -1,0 +1,68 @@
+.wrapper {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+}
+
+.whiteLogo {
+  display: none;
+}
+
+.logo {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.yellowLogo {
+  position: inherit;
+  width: 30px;
+}
+.logo p {
+  font-size: 0.8rem;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.menu {
+  top: 20px;
+  right: 10px;
+  position: relative;
+  display: inline-block;
+  background: rgb(0, 0, 0);
+  width: 30px;
+  height: 5px;
+  border-radius: 5px;
+}
+.menu::before,
+.menu::after {
+  content: "";
+  display: block;
+  background: black;
+  width: 30px;
+  height: 5px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  border-radius: 5px;
+}
+.menu::before {
+  top: -10px;
+}
+.menu::after {
+  top: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  .yellowLogo {
+    display: none;
+  }
+  .whiteLogo {
+    display: block;
+    width: 50px;
+  }
+  .menu {
+    display: none;
+  }
+}
