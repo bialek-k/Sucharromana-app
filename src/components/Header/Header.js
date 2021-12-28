@@ -1,9 +1,5 @@
-import React from "react";
 import classes from "./Header.module.css";
-
-import logo from "../../assets/Hello-Roman.png";
-import zolte from "../../assets/zolte.jpg";
-import ham from "../../assets/png/ham.png";
+import Button from "../UI/Button/Button";
 
 import { useDispatch } from "react-redux";
 import { faqActions } from "../../store";
@@ -18,11 +14,20 @@ const Header = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.logo}>
-        <img className={classes.yellowLogo} src={zolte} alt="helloroman" />
-        <img className={classes.whiteLogo} src={logo} alt="helloroman" />
         <p>sucharromana</p>
+        <p className={classes.desc}>fan made project</p>
       </div>
-      <div className={classes.menu}></div>
+      <div className={classes.menu}>
+        <div className={classes.ham}>
+          <span className={classes.hamInner}></span>
+        </div>
+        <div className={classes.normalMenu}>
+          <div className={classes.buttons}>
+            <Button name={"faq"} onClick={showFaqHandler} />
+            <Button href={"https://helloroman.pl"} name={"helloroman"} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
