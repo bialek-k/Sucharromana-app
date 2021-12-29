@@ -33,7 +33,7 @@ const Question = () => {
     <div className={classes.question}>
       <h1>{randomJoke.question}</h1>
       <div className={classes.btn}>
-        <Button name={"odpowiedź"} onClick={() => showAnswerHandler()} />
+        <Button name={"odpowiedź"} onClick={() => showAnswerHandler()} size />
         {showAnswer && (
           <>
             <Button

@@ -23,8 +23,8 @@ const Header = () => {
         </div>
         <div className={classes.normalMenu}>
           <div className={classes.buttons}>
-            <Button name={"faq"} onClick={showFaqHandler} />
-            <Button href={"https://helloroman.pl"} name={"helloroman"} />
+            <Button name={"faq"} onClick={showFaqHandler} menu />
+            <Button href={"https://helloroman.pl"} name={"helloroman"} menu />
           </div>
         </div>
       </div>

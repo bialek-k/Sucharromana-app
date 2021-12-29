@@ -14,9 +14,10 @@ export const StyledButton = styled.button`
     font-size: 1rem;
   }
   @media screen and (min-width: 2560px) {
-    font-size: 1.4rem;
     margin: 25px 25px 0px 0px;
-    padding: 25px;
+    font-size: ${(props) => (props.menu ? "0.7rem" : "1.4rem")};
+    padding: ${(props) => (props.menu ? "10px" : "25px")};
+    /* padding: 25px; */
   }
 
   &:before {
@@ -31,7 +32,8 @@ export const StyledButton = styled.button`
     transition: transform 0.2s;
 
     @media screen and (min-width: 1024px) {
-      background-color: rgb(255, 216, 41);
+      background-color: ${(props) =>
+        props.menu ? "white" : "rgb(255, 216, 41)"};
     }
   }
 
@@ -66,15 +68,16 @@ export const StyledButtonLink = styled.a`
   padding: 10px;
   font-weight: bold;
   font-size: 0.7rem;
+
   z-index: 20;
 
   @media screen and (min-width: 768px) {
     font-size: 1rem;
   }
   @media screen and (min-width: 2560px) {
-    font-size: 1.4rem;
     margin: 25px 25px 0px 0px;
-    padding: 25px;
+    font-size: ${(props) => (props.menu ? "0.9rem" : "1.4rem")};
+    padding: ${(props) => (props.menu ? "10px" : "25px")};
   }
 
   &:before {
@@ -89,7 +92,8 @@ export const StyledButtonLink = styled.a`
     transition: transform 0.2s;
 
     @media screen and (min-width: 1024px) {
-      background-color: rgb(255, 216, 41);
+      background-color: ${(props) =>
+        props.menu ? "white" : "rgb(255, 216, 41)"};
     }
   }
 
