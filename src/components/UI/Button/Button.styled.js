@@ -15,9 +15,8 @@ export const StyledButton = styled.button`
   }
   @media screen and (min-width: 2560px) {
     margin: 25px 25px 0px 0px;
-    font-size: ${(props) => (props.menu ? "0.7rem" : "1.4rem")};
+    font-size: ${(props) => (props.menu ? "0.9rem" : "1.4rem")};
     padding: ${(props) => (props.menu ? "10px" : "25px")};
-    /* padding: 25px; */
   }
 
   &:before {

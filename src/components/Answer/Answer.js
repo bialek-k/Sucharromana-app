@@ -12,7 +12,7 @@ const Answer = () => {
     <div className={classes.wrapper}>
       {showAnswer && (
         <div className={classes.answer}>
-          <svg
+          {/* <svg
             width="536"
             height="407"
             viewBox="0 0 536 407"
@@ -36,7 +36,16 @@ const Answer = () => {
             >
               {randomJoke.answer}
             </text>
-          </svg>
+          </svg> */}
+          <div className={classes.quoteWrapper}>
+            <blockquote className={classes.text}>
+              <p>
+                Wkurzona dziewczyna pyta programistę: co wybierasz, wyjście do
+                kina czy edytor kodu?
+              </p>
+            </blockquote>
+          </div>
+
           <div className={classes.photo}>
             <img src={Photo} alt="photo_hero" />
           </div>
