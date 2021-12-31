@@ -1,12 +1,60 @@
 .wrapper {
-  height: 50vh;
+  /* height: 50vh; */
   overflow: hidden;
 }
 
-.answer {
-  overflow: hidden;
+.quoteWrapper {
+  position: absolute;
+  bottom: 156px;
+  right: 153px;
+  height: 130px;
+  width: 167px;
 }
-.photo {
+
+.text {
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.text p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.triangleWrapper {
+  position: absolute;
+  bottom: -30px;
+  right: -27px;
+  width: 150px;
+  height: 150px;
+  transform: rotate(120deg);
+}
+
+.triangle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 150px solid white;
+}
+
+/* .photo {
   display: block;
   position: absolute;
   overflow: hidden;
@@ -15,111 +63,55 @@
   width: 250px;
 }
 
-svg {
-  position: absolute;
-  bottom: 35px;
-  right: 135px;
-  width: 190px;
-}
-
 .photo img {
   overflow: hidden;
   position: relative;
   width: 100%;
   bottom: -10px;
   right: -40px;
-}
+} */
 
 @media screen and (min-width: 768px) {
-  svg {
-    width: 265px;
-    bottom: 125px;
-    right: 215px;
+  .answer {
+    display: block;
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: red;
   }
   .photo {
-    width: 380px;
+    width: 100%;
+    background: blue;
+  }
+  .photo img {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .quoteWrapper {
-    height: 300px;
-    position: relative;
-    width: 300px;
-  }
-  .text {
-    background: radial-gradient(
-      ellipse at center,
-      rgba(255, 216, 41, 1) 0%,
-      rgba(255, 216, 41, 1) 70%,
-      rgba(255, 216, 41, 0) 70.3%
-    );
-    position: relative;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    /* background: red; */
-  }
-  .text::before {
-    content: "";
-    float: left;
-    height: 100%;
-    width: 50%;
-    shape-outside: polygon(
-      0 0,
-      98% 0,
-      50% 6%,
-      23.4% 17.3%,
-      6% 32.6%,
-      0 50%,
-      6% 65.6%,
-      23.4% 82.7%,
-      50% 94%,
-      98% 100%,
-      0 100%
-    );
-    shape-margin: 7%;
-  }
-
-  .text p {
-    font-size: 25px;
-    height: 100%;
-    text-align: center;
-  }
-
-  .text p::before {
-    content: "";
-    float: right;
-    height: 100%;
-    width: 50%;
-    shape-outside: polygon(
-      2% 0%,
-      100% 0%,
-      100% 100%,
-      2% 100%,
-      50% 94%,
-      76.6% 82.7%,
-      94% 65.6%,
-      100% 50%,
-      94% 32.6%,
-      76.6% 17.3%,
-      50% 6%
-    );
-    shape-margin: 7%;
-  }
-
-  svg {
-    bottom: 245px;
-    right: 245px;
+    position: absolute;
+    bottom: 460px;
+    right: 368px;
+    height: 215px;
     width: 280px;
   }
-  svg path {
-    fill: rgb(255, 216, 41);
-    stroke: black;
+  .text {
+    background: rgb(255, 216, 41);
   }
-
+  .text p {
+    font-size: 22px;
+  }
+  .triangle {
+    border-bottom: 150px solid rgb(255, 216, 41);
+  }
   .photo {
-    width: 550px;
+    width: 90vh;
   }
   .photo img {
     right: -130px;
@@ -135,26 +127,31 @@ svg {
   }
 }
 @media screen and (min-width: 1440px) {
+  .quoteWrapper {
+    bottom: 504px;
+    right: 500px;
+  }
+
   .photo {
     width: 820px;
-  }
-  svg {
-    bottom: 460px;
-    right: 405px;
-    width: 420px;
   }
 }
 
 @media screen and (min-width: 2560px) {
-  svg {
-    bottom: 820px;
-    right: 850px;
-    width: 500px;
+  .quoteWrapper {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    height: 440px;
+    width: 540px;
+  }
+  .text {
+    background: rgb(255, 216, 41);
+  }
+  .text p {
+    font-size: 2.5rem;
   }
   .photo {
     width: 65%;
-  }
-  svg path {
-    stroke: none;
   }
 }
