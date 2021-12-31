@@ -9,7 +9,7 @@ const Answer = () => {
   const randomJoke = useSelector((state) => state.question.randomJoke);
 
   return (
-    <div className={classes.wrapper}>
+    <>
       {showAnswer && (
         <div className={classes.answer}>
           <div className={classes.quoteWrapper}>
@@ -25,7 +25,7 @@ const Answer = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
