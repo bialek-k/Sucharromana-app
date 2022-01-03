@@ -15,6 +15,20 @@ function App() {
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
 
   useEffect(() => {
+    const fetchJokes = async () => {
+      fetch(
+        `https://sucharromana-default-rtdb.firebaseio.com/jokes/${
+          Math.floor(Math.random() * 169) + 1
+        }.json`
+      )
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    };
+
+    fetchJokes();
+  }, []);
+
+  useEffect(() => {
     dispatch(questionActions.getRandomJokes());
   }, [dispatch]);
 
