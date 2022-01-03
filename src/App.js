@@ -8,7 +8,7 @@ import Faq from "./components/Faq/Faq";
 import classes from "./App.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
-import { questionActions } from "./store/index";
+import { questionActions } from "./store/question-slice";
 
 function App() {
   const dispatch = useDispatch();

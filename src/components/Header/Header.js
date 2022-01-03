@@ -2,7 +2,7 @@ import classes from "./Header.module.css";
 import Button from "../UI/Button/Button";
 
 import { useDispatch } from "react-redux";
-import { faqActions } from "../../store";
+import { faqActions } from "../../store/faq-slice";
 
 const Header = () => {
   const dispatch = useDispatch();

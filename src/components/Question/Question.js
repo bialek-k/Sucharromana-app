@@ -3,7 +3,7 @@ import classes from "./Question.module.css";
 import Jingle from "../../assets/sound/jingle.mp3";
 
 import { useSelector, useDispatch } from "react-redux";
-import { questionActions } from "../../store/index";
+import { questionActions } from "../../store/question-slice";
 import { Howl, Howler } from "howler";
 
 import Button from "../UI/Button/Button";

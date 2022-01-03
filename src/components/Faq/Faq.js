@@ -3,7 +3,7 @@ import classes from "./Faq.module.css";
 import photo from "../../assets/png/author.jpg";
 
 import { useDispatch } from "react-redux";
-import { faqActions } from "../../store/index";
+import { faqActions } from "../../store/faq-slice";
 
 const Faq = () => {
   const dispatch = useDispatch();
