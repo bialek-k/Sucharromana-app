@@ -9,6 +9,7 @@ import classes from "./App.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
 import { questionActions } from "./store/question-slice";
+import { jokeAction } from "./store/joke-slice";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,16 @@ function App() {
         }.json`
       )
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          dispatch(
+            jokeAction.getFetchJoke({
+              id: data.id,
+              question: data.question,
+              answer: data.answer,
+              url: data.url,
+            })
+          );
+        });
     };
 
     fetchJokes();
