@@ -1,3 +1,41 @@
+import { useEffect, useState } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import { sortActions } from "../store/sort-slice";
+
+const useFetch = () => {
+  const length = useSelector((state) => state.sort.dataLength);
+  const reload = useSelector((state) => state.question.reload);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchJoke = async () => {
+      const response = await fetch(
+        "https://sucharromana-default-rtdb.firebaseio.com/jokes.json"
+      );
+
+      if (!response.ok) {
+        throw new Error("Something went wrong :)");
+      }
+
+      const responseData = await response.json();
+      dispatch(
+        sortActions.getDataLength({
+          length: responseData.length,
+        })
+      );
+    };
+    fetchJoke();
+  }, []);
+
+  useEffect(() => {
+    dispatch(sortActions.getRandomIdx());
+  }, [length]);
+};
+
+export default useFetch;
+
+/*
 import { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -33,3 +71,4 @@ const useFetch = () => {
 };
 
 export default useFetch;
+*/

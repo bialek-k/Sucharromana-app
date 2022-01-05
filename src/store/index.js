@@ -2,10 +2,10 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import faqReducer from "./faq-slice";
 import questionReducer from "./question-slice";
-import jokeReducer from "./joke-slice";
+import sortSlice from "./sort-slice";
 
 export const store = configureStore({
-  reducer: { question: questionReducer, faq: faqReducer, joke: jokeReducer },
+  reducer: { question: questionReducer, faq: faqReducer, sort: sortSlice },
 });
 
 export default store;

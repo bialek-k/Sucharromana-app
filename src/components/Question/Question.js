@@ -8,7 +8,7 @@ import classes from "./Question.module.css";
 import Jingle from "../../assets/sound/jingle.mp3";
 
 const Question = () => {
-  const randomJoke = useSelector((state) => state.question.joke);
+  const joke = useSelector((state) => state.question.joke);
   const showAnswer = useSelector((state) => state.question.showAnswer);
   const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ const Question = () => {
 
   return (
     <div className={classes.question}>
-      <h1>{randomJoke.question}</h1>
+      <h1>{joke.question}</h1>
       <div className={classes.btn}>
         <Button name={"odpowiedź"} onClick={() => showAnswerHandler()} size />
         {showAnswer && (
@@ -39,7 +39,7 @@ const Question = () => {
               name={"(Next.js) suchar"}
               onClick={() => nextQuestionHandler()}
             />
-            <Button href={randomJoke.url} name={`Odcinek ${randomJoke.id}`} />
+            <Button href={joke.url} name={`Odcinek ${joke.id}`} />
           </>
         )}
       </div>
