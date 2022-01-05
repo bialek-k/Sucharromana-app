@@ -1,18 +1,15 @@
-import classes from "./Question.module.css";
-
-import Jingle from "../../assets/sound/jingle.mp3";
-
 import { useSelector, useDispatch } from "react-redux";
 import { questionActions } from "../../store/question-slice";
 import { Howl, Howler } from "howler";
 
 import Button from "../UI/Button/Button";
 
+import classes from "./Question.module.css";
+import Jingle from "../../assets/sound/jingle.mp3";
+
 const Question = () => {
   const randomJoke = useSelector((state) => state.question.joke);
   const showAnswer = useSelector((state) => state.question.showAnswer);
-  const reload = useSelector((state) => state.question.joke);
-
   const dispatch = useDispatch();
 
   const showAnswerHandler = () => {
@@ -28,7 +25,6 @@ const Question = () => {
 
   const nextQuestionHandler = () => {
     dispatch(questionActions.getReload());
-    console.log(reload);
     dispatch(questionActions.getAnswer());
   };
 
