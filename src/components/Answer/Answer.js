@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const Answer = () => {
   const showAnswer = useSelector((state) => state.question.showAnswer);
-  const randomJoke = useSelector((state) => state.question.randomJoke);
+  const randomJoke = useSelector((state) => state.question.joke);
 
   return (
     <>

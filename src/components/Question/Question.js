@@ -9,8 +9,10 @@ import { Howl, Howler } from "howler";
 import Button from "../UI/Button/Button";
 
 const Question = () => {
-  const randomJoke = useSelector((state) => state.question.randomJoke);
+  const randomJoke = useSelector((state) => state.question.joke);
   const showAnswer = useSelector((state) => state.question.showAnswer);
+  const reload = useSelector((state) => state.question.joke);
+
   const dispatch = useDispatch();
 
   const showAnswerHandler = () => {
@@ -25,7 +27,8 @@ const Question = () => {
   };
 
   const nextQuestionHandler = () => {
-    dispatch(questionActions.getRandomJokes());
+    dispatch(questionActions.getReload());
+    console.log(reload);
     dispatch(questionActions.getAnswer());
   };
 

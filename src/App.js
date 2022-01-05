@@ -24,11 +24,12 @@ function App() {
       )
         .then((response) => response.json())
         .then((data) => {
+          console.log(data);
           dispatch(
-            jokeAction.getFetchJoke({
+            questionActions.fetchRandomJoke({
+              answer: data.answer,
               id: data.id,
               question: data.question,
-              answer: data.answer,
               url: data.url,
             })
           );
@@ -38,9 +39,9 @@ function App() {
     fetchJokes();
   }, []);
 
-  useEffect(() => {
-    dispatch(questionActions.getRandomJokes());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(questionActions.getRandomJoke());
+  // }, []);
 
   return (
     <div className={classes.wrapper}>
