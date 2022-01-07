@@ -5,9 +5,13 @@ import Faq from "./components/Faq/Faq";
 import classes from "./App.module.css";
 
 import { useSelector } from "react-redux";
+import useFetch from "./hooks/use-fetch";
 
 function App() {
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
+  const joke = useSelector((state) => state.question.randomJoke);
+  useFetch();
+  console.log(joke);
 
   return (
     <div className={classes.wrapper}>

@@ -12,9 +12,6 @@ const questionSlice = createSlice({
         url: action.payload.url,
       };
     },
-    getAllJokes(state, action) {
-      state.jokes = action.payload.jokes;
-    },
     getReload(state) {
       state.reload = !state.reload;
     },
