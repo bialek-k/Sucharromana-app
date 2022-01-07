@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { sortActions } from "../store/sort-slice";
+import { questionActions } from "../store/question-slice";
 
 const useFetch = () => {
-  const length = useSelector((state) => state.sort.dataLength);
-  const reload = useSelector((state) => state.question.reload);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,18 +17,15 @@ const useFetch = () => {
       }
 
       const responseData = await response.json();
+
       dispatch(
-        sortActions.getDataLength({
-          length: responseData.length,
+        questionActions.getAllJokes({
+          jokes: responseData,
         })
       );
     };
     fetchJoke();
-  }, []);
-
-  useEffect(() => {
-    dispatch(sortActions.getRandomIdx());
-  }, [length]);
+  }, [dispatch]);
 };
 
 export default useFetch;

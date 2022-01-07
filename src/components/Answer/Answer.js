@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const Answer = () => {
   const showAnswer = useSelector((state) => state.question.showAnswer);
-  const joke = useSelector((state) => state.question.joke);
+  const randomJoke = useSelector((state) => state.question.randomJoke);
 
   return (
     <>
@@ -17,7 +17,7 @@ const Answer = () => {
               <div className={classes.triangleWrapper}>
                 <div className={classes.triangle}></div>
               </div>
-              <p>{joke.answer}</p>
+              <p>{randomJoke.answer}</p>
             </div>
           </div>
           <div className={classes.photo}>
