@@ -1,12 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { questionActions } from "../store/question-slice";
 
 const useFetch = () => {
+  const [idxArr, setIdxArr] = useState([]);
   const dispatch = useDispatch();
 
+  const randomIdx = () => {
+    let idx;
+    const random = Math.floor(Math.random() * 175) + 1;
+    setIdxArr([...idxArr, random]);
+    console.log(idxArr);
+  };
+
   useEffect(() => {
+    randomIdx();
     const fetchJoke = async () => {
       const response = await fetch(
         "https://sucharromana-default-rtdb.firebaseio.com/jokes.json"
