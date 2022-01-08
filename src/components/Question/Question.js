@@ -6,6 +6,7 @@ import Button from "../UI/Button/Button";
 
 import classes from "./Question.module.css";
 import Jingle from "../../assets/sound/jingle.mp3";
+import useFetch from "../../hooks/use-fetch";
 
 const Question = () => {
   const randomJoke = useSelector((state) => state.question.randomJoke);
