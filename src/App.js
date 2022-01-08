@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Header from "./components/Header/Header";
 import Question from "./components/Question/Question";
 import Answer from "./components/Answer/Answer";
@@ -9,9 +11,11 @@ import useFetch from "./hooks/use-fetch";
 
 function App() {
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
-  const joke = useSelector((state) => state.question.randomJoke);
-  useFetch();
-  console.log(joke);
+  const { fetchJoke } = useFetch();
+
+  useEffect(() => {
+    fetchJoke();
+  }, []);
 
   return (
     <div className={classes.wrapper}>

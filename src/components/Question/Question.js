@@ -13,6 +13,8 @@ const Question = () => {
   const showAnswer = useSelector((state) => state.question.showAnswer);
   const dispatch = useDispatch();
 
+  const { fetchJoke } = useFetch();
+
   const showAnswerHandler = () => {
     const sound = new Howl({
       src: Jingle,
@@ -25,6 +27,7 @@ const Question = () => {
   };
 
   const nextQuestionHandler = () => {
+    fetchJoke();
     dispatch(questionActions.getReload());
     dispatch(questionActions.getAnswer());
   };
