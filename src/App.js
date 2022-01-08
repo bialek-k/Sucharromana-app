@@ -10,8 +10,17 @@ import { useSelector } from "react-redux";
 import useFetch from "./hooks/use-fetch";
 
 function App() {
+  const idxFromStore = useSelector((state) => state.sort.selectedIdx);
+
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
   const { fetchJoke } = useFetch();
+
+  const duplicateId = idxFromStore.filter(
+    (el, id, arr) => arr.indexOf(el) !== id
+  );
+  if (duplicateId.length > 0) {
+    console.log("powtórzenie");
+  }
 
   useEffect(() => {
     fetchJoke();

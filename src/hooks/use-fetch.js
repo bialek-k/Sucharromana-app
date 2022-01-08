@@ -1,14 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { questionActions } from "../store/question-slice";
 import { sortActions } from "../store/sort-slice";
 
 const useFetch = () => {
   const dispatch = useDispatch();
-  const randomIdx = Math.floor(Math.random() * 175);
+  const idxFromStore = useSelector((state) => state.sort.selectedIdx);
 
   const fetchJoke = async () => {
+    const randomIdx = Math.floor(Math.random() * 5) + 1;
+
+    const duplicateId = idxFromStore.filter(
+      (el, id, arr) => arr.indexOf(el) !== id
+    );
+    if (duplicateId.length > 0) {
+      console.log("powtórzenie");
+    }
+
     try {
       const response = await fetch(
         `https://sucharromana-default-rtdb.firebaseio.com/jokes/${randomIdx}.json`
@@ -18,11 +27,14 @@ const useFetch = () => {
       }
       dispatch(
         sortActions.getSelectedIdx({
-          selectedIdx: randomIdx,
+          selectedIdx: [...idxFromStore, randomIdx],
         })
       );
 
       const responseData = await response.json();
+
+      // console.log(idxFromStore);
+      // console.log(responseData);
 
       dispatch(
         questionActions.getRandomJoke({
@@ -37,9 +49,9 @@ const useFetch = () => {
     }
   };
 
-  useEffect(() => {
-    fetchJoke();
-  }, []);
+  // useEffect(() => {
+  //   fetchJoke();
+  // }, []);
 
   return { fetchJoke };
 };
