@@ -28,7 +28,6 @@ const Question = () => {
 
   const nextQuestionHandler = () => {
     fetchJoke();
-    dispatch(questionActions.getReload());
     dispatch(questionActions.getAnswer());
   };
 
