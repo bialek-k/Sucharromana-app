@@ -27,7 +27,7 @@ const Faq = () => {
               mam fajny pomysł na kolejną aplikację :)
             </p>
             <div className={classes.link}>
-              <a href="https://github.com/bialek-k">coś o mnie</a>
+              <a href="https://github.com/bialek-k">tyle narobiłem</a>
             </div>
           </div>
         </div>
