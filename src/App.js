@@ -12,7 +12,7 @@ import useFetch from "./hooks/use-fetch";
 function App() {
   const idxFromStore = useSelector((state) => state.sort.selectedIdx);
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
-  const { fetchJoke, loaded, setLoaded } = useFetch();
+  const { fetchJoke, loaded } = useFetch();
 
   useEffect(() => {
     fetchJoke();
