@@ -9,7 +9,7 @@ const useFetch = () => {
   const idxFromStore = useSelector((state) => state.sort.selectedIdx);
 
   const fetchJoke = async () => {
-    const randomIdx = Math.floor(Math.random() * 3) + 1;
+    const randomIdx = Math.floor(Math.random() * 171) + 1;
 
     try {
       const response = await fetch(
