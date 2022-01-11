@@ -1,11 +1,29 @@
 .wrapper {
   overflow: hidden;
 }
+.answer {
+  position: absolute;
+  overflow: hidden;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 60vh;
+  /* background: red; */
+}
+
+.photo {
+  position: absolute;
+  bottom: -20px;
+  right: -90px;
+}
+.photo img {
+  width: 350px;
+}
 
 .quoteWrapper {
   position: absolute;
-  bottom: 156px;
-  right: 153px;
+  bottom: 220px;
+  right: 160px;
   height: 130px;
   width: 167px;
 }
@@ -104,6 +122,16 @@
   }
   .triangle {
     border-bottom: 150px solid rgb(255, 216, 41);
+  }
+}
+
+@media screen and (max-height: 900px) {
+  .photo img {
+    width: 550px;
+  }
+  .quoteWrapper {
+    bottom: 550px;
+    right: 469px;
   }
 }
 @media screen and (min-width: 1440px) {
