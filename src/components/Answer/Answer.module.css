@@ -125,15 +125,6 @@
   }
 }
 
-@media screen and (max-height: 900px) {
-  .photo img {
-    width: 550px;
-  }
-  .quoteWrapper {
-    bottom: 550px;
-    right: 469px;
-  }
-}
 @media screen and (min-width: 1440px) {
   .quoteWrapper {
     bottom: 612px;
