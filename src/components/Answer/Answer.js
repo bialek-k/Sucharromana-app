@@ -5,7 +5,7 @@ import Photo from "../../assets/png/photo_hero.png";
 import { useSelector } from "react-redux";
 
 const Answer = () => {
-  const showAnswer = useSelector((state) => state.question.showAnswer);
+  const showAnswer = useSelector((state) => state.jokes.showAnswer);
   const randomJoke = useSelector((state) => state.question.randomJoke);
 
   return (
