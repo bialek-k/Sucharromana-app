@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { jokesActions } from "../../store/jokes-slice";
 import { Howl, Howler } from "howler";
@@ -7,13 +6,16 @@ import Button from "../UI/Button/Button";
 
 import classes from "./Question.module.css";
 import Jingle from "../../assets/sound/jingle.mp3";
+import { questionActions } from "../../store/question-slice";
+
 import useFetch from "../../hooks/use-fetch";
 
 const Question = () => {
-  const jokes = useSelector((state) => state.jokes.jokes);
-  const randomJokeId = useSelector((state) => state.jokes.randomJoke);
-  const showAnswer = useSelector((state) => state.jokes.showAnswer);
+  const randomJoke = useSelector((state) => state.question.randomJoke);
+  const showAnswer = useSelector((state) => state.question.showAnswer);
   const dispatch = useDispatch();
+
+  const { fetchJoke } = useFetch();
 
   const showAnswerHandler = () => {
     const sound = new Howl({
@@ -22,28 +24,16 @@ const Question = () => {
     Howler.volume(0.5);
     sound.play();
     setTimeout(() => {
-      dispatch(jokesActions.getAnswer());
+      dispatch(questionActions.getAnswer());
     }, 1300);
   };
 
-  const randomizeJoke = () => {
-    const randomId = Math.floor(Math.random() * jokes.length) + 1;
-    dispatch(
-      jokesActions.setRandomJokeId({
-        randomId: randomId,
-      })
-    );
-    console.log(randomId);
+  const nextQuestionHandler = () => {
+    fetchJoke();
+    dispatch(questionActions.getAnswer());
   };
 
-  randomizeJoke();
-
-  const randomJoke = jokes[randomJokeId];
-
-  // const nextQuestionHandler = () => {
-  //   fetchJoke();
-  //   dispatch(questionActions.getAnswer());
-  // };
+  console.log(showAnswer);
 
   return (
     <div className={classes.question}>
@@ -52,7 +42,7 @@ const Question = () => {
         <Button name={"odpowiedź"} onClick={showAnswerHandler} size />
         {showAnswer && (
           <>
-            <Button name={"(Next.js) suchar"} />
+            <Button name={"(Next.js) suchar"} onClick={nextQuestionHandler} />
             <Button href={randomJoke.url} name={`Odcinek ${randomJoke.id}`} />
           </>
         )}

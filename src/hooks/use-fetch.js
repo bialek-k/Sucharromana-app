@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { questionActions } from "../store/question-slice";
 import { sortActions } from "../store/sort-slice";
@@ -8,7 +8,7 @@ const useFetch = () => {
   const [loaded, setLoaded] = useState(false);
   const idxFromStore = useSelector((state) => state.sort.selectedIdx);
 
-  const fetchJoke = async () => {
+  const fetchJoke = useCallback(async () => {
     const randomIdx = Math.floor(Math.random() * 171) + 1;
 
     try {
@@ -38,7 +38,7 @@ const useFetch = () => {
     } catch (err) {
       console.log(err);
     }
-  };
+  }, [dispatch, idxFromStore]);
 
   return { fetchJoke, loaded, setLoaded };
 };

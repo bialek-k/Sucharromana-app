@@ -8,40 +8,22 @@ import classes from "./App.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
 import { jokesActions } from "./store/jokes-slice";
+import useFetch from "./hooks/use-fetch";
 
 function App() {
   const dispatch = useDispatch();
   const [dataLoaded, setDataLoaded] = useState(false);
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
-
-  const fetchJoke = async () => {
-    setDataLoaded(false);
-    try {
-      const response = await fetch(
-        "https://sucharromana-default-rtdb.firebaseio.com/jokes.json"
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch");
-      }
-      const responseData = await response.json();
-      dispatch(
-        jokesActions.getJokes({
-          jokes: responseData,
-        })
-      );
-    } catch (err) {
-      console.log(err);
-    }
-    setDataLoaded(true);
-  };
+  const { fetchJoke } = useFetch();
 
   useEffect(() => {
     fetchJoke();
+    setDataLoaded(true);
   }, []);
 
   return (
     <div className={classes.wrapper}>
-      {/* {faqIsVisible && <Faq />} */}
+      {faqIsVisible && <Faq />}
       <>
         {dataLoaded && (
           <>
