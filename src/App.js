@@ -6,26 +6,24 @@ import Answer from "./components/Answer/Answer";
 import Faq from "./components/Faq/Faq";
 import classes from "./App.module.css";
 
-import { useSelector, useDispatch } from "react-redux";
-import { jokesActions } from "./store/jokes-slice";
+import { useSelector } from "react-redux";
 import useFetch from "./hooks/use-fetch";
 
 function App() {
-  const dispatch = useDispatch();
-  const [dataLoaded, setDataLoaded] = useState(false);
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
-  const { fetchJoke } = useFetch();
+  const idxFromStore = useSelector((state) => state.sort.selectedIdx);
+  const randomJoke = useSelector((state) => state.question.randomJoke);
+  const { fetchJoke, loaded } = useFetch();
 
   useEffect(() => {
     fetchJoke();
-    setDataLoaded(true);
   }, []);
 
   return (
     <div className={classes.wrapper}>
       {faqIsVisible && <Faq />}
       <>
-        {dataLoaded && (
+        {loaded && (
           <>
             <Header />
             <Question />

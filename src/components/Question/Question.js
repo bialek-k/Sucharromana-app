@@ -33,8 +33,6 @@ const Question = () => {
     dispatch(questionActions.getAnswer());
   };
 
-  console.log(showAnswer);
-
   return (
     <div className={classes.question}>
       <h1>{randomJoke.question}</h1>

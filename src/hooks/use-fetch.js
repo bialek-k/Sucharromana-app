@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { questionActions } from "../store/question-slice";
 import { sortActions } from "../store/sort-slice";
@@ -7,10 +7,9 @@ const useFetch = () => {
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
   const idxFromStore = useSelector((state) => state.sort.selectedIdx);
+  const randomIdx = Math.floor(Math.random() * 5);
 
   const fetchJoke = useCallback(async () => {
-    const randomIdx = Math.floor(Math.random() * 171) + 1;
-
     try {
       const response = await fetch(
         `https://sucharromana-default-rtdb.firebaseio.com/jokes/${randomIdx}.json`
@@ -20,9 +19,10 @@ const useFetch = () => {
       }
 
       const responseData = await response.json();
+
       dispatch(
         sortActions.getSelectedIdx({
-          selectedIdx: [...idxFromStore, responseData.id],
+          selectedIdx: [...idxFromStore, randomIdx + 1],
         })
       );
 
@@ -34,13 +34,13 @@ const useFetch = () => {
           url: responseData.url,
         })
       );
-      setLoaded(true);
     } catch (err) {
       console.log(err);
     }
-  }, [dispatch, idxFromStore]);
+    setLoaded(true);
+  }, [dispatch, idxFromStore, randomIdx]);
 
-  return { fetchJoke, loaded, setLoaded };
+  return { fetchJoke, loaded };
 };
 
 export default useFetch;
