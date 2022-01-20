@@ -6,17 +6,46 @@ import Answer from "./components/Answer/Answer";
 import Faq from "./components/Faq/Faq";
 import classes from "./App.module.css";
 
-import { useSelector } from "react-redux";
-import useFetch from "./hooks/use-fetch";
+import { useSelector, useDispatch } from "react-redux";
+import { questionActions } from "./store/question-slice";
 
 function App() {
+  const dispatch = useDispatch();
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
-  const idxFromStore = useSelector((state) => state.sort.selectedIdx);
-  const randomJoke = useSelector((state) => state.question.randomJoke);
-  const { fetchJoke, loaded } = useFetch();
+  const [loaded, setIsLoaded] = useState(false);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        `https://sucharromana-default-rtdb.firebaseio.com/jokes.json`
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch");
+      }
+
+      const responseData = await response.json();
+      const initialJokeId = Math.floor(Math.random() * responseData.length);
+      dispatch(
+        questionActions.getInitialJokeId({
+          initialJokeId: initialJokeId,
+        })
+      );
+
+      dispatch(
+        questionActions.getAllJokes({
+          allJokes: responseData,
+        })
+      );
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoaded(true);
+    }
+  };
 
   useEffect(() => {
-    fetchJoke();
+    fetchData();
   }, []);
 
   return (

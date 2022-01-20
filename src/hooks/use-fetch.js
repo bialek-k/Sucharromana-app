@@ -7,7 +7,7 @@ const useFetch = () => {
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
   const idxFromStore = useSelector((state) => state.sort.selectedIdx);
-  const randomIdx = Math.floor(Math.random() * 5);
+  const randomIdx = Math.floor(Math.random() * 171);
 
   const fetchJoke = useCallback(async () => {
     try {

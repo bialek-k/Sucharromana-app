@@ -1,5 +1,5 @@
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { jokesActions } from "../../store/jokes-slice";
 import { Howl, Howler } from "howler";
 
 import Button from "../UI/Button/Button";
@@ -8,14 +8,12 @@ import classes from "./Question.module.css";
 import Jingle from "../../assets/sound/jingle.mp3";
 import { questionActions } from "../../store/question-slice";
 
-import useFetch from "../../hooks/use-fetch";
-
 const Question = () => {
-  const randomJoke = useSelector((state) => state.question.randomJoke);
+  const allJokes = useSelector((state) => state.question.allJokes);
   const showAnswer = useSelector((state) => state.question.showAnswer);
+  const initialJokeId = useSelector((state) => state.question.initialJokeId);
+  const [jokeId, setJokeId] = useState(initialJokeId);
   const dispatch = useDispatch();
-
-  const { fetchJoke } = useFetch();
 
   const showAnswerHandler = () => {
     const sound = new Howl({
@@ -28,25 +26,35 @@ const Question = () => {
     }, 1300);
   };
 
-  const nextQuestionHandler = () => {
-    fetchJoke();
-    dispatch(questionActions.getAnswer());
-  };
+  useEffect(() => {
+    console.log(jokeId);
+  }, [jokeId]);
 
-  return (
-    <div className={classes.question}>
-      <h1>{randomJoke.question}</h1>
-      <div className={classes.btn}>
-        <Button name={"odpowiedź"} onClick={showAnswerHandler} size />
-        {showAnswer && (
-          <>
-            <Button name={"(Next.js) suchar"} onClick={nextQuestionHandler} />
-            <Button href={randomJoke.url} name={`Odcinek ${randomJoke.id}`} />
-          </>
-        )}
+  // wygeneruj randomm number (Math.random) pomiedzy 1 a allJokes.length (move+1),
+  // za kazdym kliknieciem w next joke dodaj numer do arraya(usestate)
+
+  if (allJokes) {
+    return (
+      <div className={classes.question}>
+        <h1>{allJokes[jokeId].question} </h1>
+        <div className={classes.btn}>
+          <Button name={"odpowiedź"} onClick={showAnswerHandler} size />
+          {showAnswer && (
+            <>
+              <Button
+                name={"(Next.js) suchar"}
+                onClick={() => setJokeId(jokeId + 1)}
+              />
+              <Button
+                href={allJokes[jokeId].url}
+                name={`Odcinek ${allJokes[jokeId].answer ?? "hehe"} `}
+              />
+            </>
+          )}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Question;
