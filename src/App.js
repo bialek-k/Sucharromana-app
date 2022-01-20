@@ -31,7 +31,6 @@ function App() {
           initialJokeId: initialJokeId,
         })
       );
-
       dispatch(
         questionActions.getAllJokes({
           allJokes: responseData,
@@ -66,13 +65,6 @@ function App() {
 
 export default App;
 
-// if (loaded) {
-//   console.log(idxFromStore);
-//   const duplicateId = idxFromStore.filter(
-//     (el, id, arr) => arr.indexOf(el) !== id
-//   );
-//   if (duplicateId.length > 0) {
-//     // fetchJoke();
-//     console.log("POWTÓRZONE:", duplicateId);
-//   }
-// }
+/*
+const duplicateId = idxFromStore.filter((el, id, arr) => arr.indexOf(el) !== id
+*/

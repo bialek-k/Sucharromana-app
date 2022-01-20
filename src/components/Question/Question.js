@@ -26,9 +26,21 @@ const Question = () => {
     }, 1300);
   };
 
+  const nextJokeHandler = () => {
+    const randomId = Math.floor(Math.random() * allJokes.length);
+    dispatch(questionActions.getAnswer());
+    setJokeId(randomId);
+  };
+
   useEffect(() => {
     console.log(jokeId);
-  }, [jokeId]);
+
+    dispatch(
+      questionActions.getInitialJokeId({
+        initialJokeId: jokeId,
+      })
+    );
+  }, [jokeId, dispatch]);
 
   // wygeneruj randomm number (Math.random) pomiedzy 1 a allJokes.length (move+1),
   // za kazdym kliknieciem w next joke dodaj numer do arraya(usestate)
@@ -41,10 +53,7 @@ const Question = () => {
           <Button name={"odpowiedź"} onClick={showAnswerHandler} size />
           {showAnswer && (
             <>
-              <Button
-                name={"(Next.js) suchar"}
-                onClick={() => setJokeId(jokeId + 1)}
-              />
+              <Button name={"(Next.js) suchar"} onClick={nextJokeHandler} />
               <Button
                 href={allJokes[jokeId].url}
                 name={`Odcinek ${allJokes[jokeId].answer ?? "hehe"} `}
