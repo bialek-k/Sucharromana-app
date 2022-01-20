@@ -13,6 +13,7 @@ const Question = () => {
   const showAnswer = useSelector((state) => state.question.showAnswer);
   const initialJokeId = useSelector((state) => state.question.initialJokeId);
   const [jokeId, setJokeId] = useState(initialJokeId);
+  const [idxArr, setIdxArr] = useState([initialJokeId]);
   const dispatch = useDispatch();
 
   const showAnswerHandler = () => {
@@ -30,11 +31,12 @@ const Question = () => {
     const randomId = Math.floor(Math.random() * allJokes.length);
     dispatch(questionActions.getAnswer());
     setJokeId(randomId);
+    setIdxArr([...idxArr, jokeId]);
+    console.log("idxArr", idxArr);
   };
 
   useEffect(() => {
-    console.log(jokeId);
-
+    console.log("jokeID:", jokeId);
     dispatch(
       questionActions.getInitialJokeId({
         initialJokeId: jokeId,

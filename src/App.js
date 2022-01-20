@@ -25,7 +25,8 @@ function App() {
       }
 
       const responseData = await response.json();
-      const initialJokeId = Math.floor(Math.random() * responseData.length);
+      const shortResponse = responseData.slice(-3);
+      const initialJokeId = Math.floor(Math.random() * shortResponse.length);
       dispatch(
         questionActions.getInitialJokeId({
           initialJokeId: initialJokeId,
@@ -33,7 +34,7 @@ function App() {
       );
       dispatch(
         questionActions.getAllJokes({
-          allJokes: responseData,
+          allJokes: shortResponse,
         })
       );
     } catch (err) {
