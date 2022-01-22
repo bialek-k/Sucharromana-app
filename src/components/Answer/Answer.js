@@ -11,21 +11,21 @@ const Answer = () => {
 
   return (
     <>
-      {showAnswer && (
-        <div className={classes.answer}>
-          <div className={classes.quoteWrapper}>
-            <div className={classes.text}>
-              <div className={classes.triangleWrapper}>
-                <div className={classes.triangle}></div>
-              </div>
-              <p>{allJokes[initialJokeId].answer}</p>
+      {/* {showAnswer && ( */}
+      <div className={classes.answer}>
+        <div className={classes.quoteWrapper}>
+          <div className={classes.text}>
+            <div className={classes.triangleWrapper}>
+              <div className={classes.triangle}></div>
             </div>
-          </div>
-          <div className={classes.photo}>
-            <img src={Photo} alt="photo_hero" />
+            <p>{allJokes[initialJokeId].answer}</p>
           </div>
         </div>
-      )}
+        <div className={classes.photo}>
+          <img src={Photo} alt="photo_hero" />
+        </div>
+      </div>
+      {/* )} */}
     </>
   );
 };

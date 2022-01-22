@@ -17,7 +17,7 @@ const useFetch = () => {
       }
 
       const responseData = await response.json();
-      const shortResponse = responseData.slice(-3);
+      const shortResponse = responseData.slice(-5);
       const initialJokeId = Math.floor(Math.random() * shortResponse.length);
       dispatch(
         questionActions.getInitialJokeId({
