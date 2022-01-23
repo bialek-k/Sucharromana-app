@@ -11,11 +11,16 @@ import useFetch from "./hooks/use-fetch";
 
 function App() {
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
+  const endOfJokes = useSelector((state) => state.question.endOfJokes);
   const { fetchJoke, dataIsLoaded } = useFetch();
 
   useEffect(() => {
     fetchJoke();
   }, []);
+
+  if (endOfJokes) {
+    return <h1>KONIEC INTERNETU, IDŹ SPAĆ!</h1>;
+  }
 
   return (
     <div className={classes.wrapper}>
@@ -34,7 +39,3 @@ function App() {
 }
 
 export default App;
-
-/*
-const duplicateId = idxFromStore.filter((el, id, arr) => arr.indexOf(el) !== id
-*/

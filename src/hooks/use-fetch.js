@@ -18,15 +18,26 @@ const useFetch = () => {
 
       const responseData = await response.json();
       const shortResponse = responseData.slice(-5);
-      const initialJokeId = Math.floor(Math.random() * shortResponse.length);
-      dispatch(
-        questionActions.getInitialJokeId({
-          initialJokeId: initialJokeId,
-        })
-      );
       dispatch(
         questionActions.getAllJokes({
           allJokes: shortResponse,
+        })
+      );
+
+      // generate Random Ids
+      const max = shortResponse.length;
+      let randomId = [];
+      for (let i = 0; i < max; i++) {
+        const randomNumber = Math.floor(Math.random() * max);
+        if (randomId.indexOf(randomNumber) == -1) {
+          randomId.push(randomNumber);
+        } else {
+          i--;
+        }
+      }
+      dispatch(
+        questionActions.setRandomJokesId({
+          randomJokesId: randomId,
         })
       );
     } catch (err) {

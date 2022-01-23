@@ -5,7 +5,9 @@ const questionSlice = createSlice({
   initialState: {
     allJokes: [],
     showAnswer: false,
-    initialJokeId: 0,
+    randomJokesId: [],
+    jokeId: 0,
+    endOfJokes: false,
   },
   reducers: {
     getAllJokes(state, action) {
@@ -14,8 +16,14 @@ const questionSlice = createSlice({
     getAnswer(state) {
       state.showAnswer = !state.showAnswer;
     },
-    getInitialJokeId(state, action) {
-      state.initialJokeId = action.payload.initialJokeId;
+    setRandomJokesId(state, action) {
+      state.randomJokesId = action.payload.randomJokesId;
+    },
+    setJokeId(state, action) {
+      state.jokeId = action.payload.jokeId;
+    },
+    setEndOfJokes(state) {
+      state.endOfJokes = !state.endOfJokes;
     },
   },
 });
