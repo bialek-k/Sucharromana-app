@@ -25,6 +25,10 @@ const questionSlice = createSlice({
     setEndOfJokes(state) {
       state.endOfJokes = !state.endOfJokes;
     },
+    setReloadApp(state) {
+      state.endOfJokes = false;
+      state.showAnswer = false;
+    },
   },
 });
 

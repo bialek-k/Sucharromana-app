@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { questionActions } from "../store/question-slice";
 
@@ -29,7 +29,7 @@ const useFetch = () => {
       let randomId = [];
       for (let i = 0; i < max; i++) {
         const randomNumber = Math.floor(Math.random() * max);
-        if (randomId.indexOf(randomNumber) == -1) {
+        if (randomId.indexOf(randomNumber) === -1) {
           randomId.push(randomNumber);
         } else {
           i--;

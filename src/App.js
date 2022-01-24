@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Question from "./components/Question/Question";
 import Answer from "./components/Answer/Answer";
 import Faq from "./components/Faq/Faq";
+import Final from "./components/Final/Final";
 import classes from "./App.module.css";
 
 import { useSelector } from "react-redux";
@@ -19,7 +20,7 @@ function App() {
   }, []);
 
   if (endOfJokes) {
-    return <h1>KONIEC INTERNETU, IDŹ SPAĆ!</h1>;
+    return <Final />;
   }
 
   return (
