@@ -58,7 +58,7 @@ const Question = () => {
             <Button name={"(Next.js) suchar"} onClick={nextJokeHandler} />
             <Button
               href={allJokes[jokeId].url}
-              name={`Odcinek ${allJokes[jokeId].answer ?? "hehe"} `}
+              name={`Odcinek ${allJokes[jokeId].id} `}
             />
           </>
         )}
