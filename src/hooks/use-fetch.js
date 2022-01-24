@@ -17,15 +17,15 @@ const useFetch = () => {
       }
 
       const responseData = await response.json();
-      const shortResponse = responseData.slice(-5);
+      responseData.shift();
       dispatch(
         questionActions.getAllJokes({
-          allJokes: shortResponse,
+          allJokes: responseData,
         })
       );
 
       // generate Random Ids
-      const max = shortResponse.length;
+      const max = responseData.length;
       let randomId = [];
       for (let i = 0; i < max; i++) {
         const randomNumber = Math.floor(Math.random() * max);
