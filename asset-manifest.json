@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Sucharromana-app/static/css/main.b127db9b.chunk.css",
-    "main.js": "/Sucharromana-app/static/js/main.7f0b33df.chunk.js",
-    "main.js.map": "/Sucharromana-app/static/js/main.7f0b33df.chunk.js.map",
-    "runtime-main.js": "/Sucharromana-app/static/js/runtime-main.4cd67e4a.js",
-    "runtime-main.js.map": "/Sucharromana-app/static/js/runtime-main.4cd67e4a.js.map",
-    "static/js/2.ffcefcc2.chunk.js": "/Sucharromana-app/static/js/2.ffcefcc2.chunk.js",
-    "static/js/2.ffcefcc2.chunk.js.map": "/Sucharromana-app/static/js/2.ffcefcc2.chunk.js.map",
-    "static/js/3.aabf5b65.chunk.js": "/Sucharromana-app/static/js/3.aabf5b65.chunk.js",
-    "static/js/3.aabf5b65.chunk.js.map": "/Sucharromana-app/static/js/3.aabf5b65.chunk.js.map",
+    "main.css": "/Sucharromana-app/static/css/main.d13b3edc.chunk.css",
+    "main.js": "/Sucharromana-app/static/js/main.60f38fbc.chunk.js",
+    "main.js.map": "/Sucharromana-app/static/js/main.60f38fbc.chunk.js.map",
+    "runtime-main.js": "/Sucharromana-app/static/js/runtime-main.056acc32.js",
+    "runtime-main.js.map": "/Sucharromana-app/static/js/runtime-main.056acc32.js.map",
+    "static/js/2.0c65cf40.chunk.js": "/Sucharromana-app/static/js/2.0c65cf40.chunk.js",
+    "static/js/2.0c65cf40.chunk.js.map": "/Sucharromana-app/static/js/2.0c65cf40.chunk.js.map",
+    "static/js/3.dcea035a.chunk.js": "/Sucharromana-app/static/js/3.dcea035a.chunk.js",
+    "static/js/3.dcea035a.chunk.js.map": "/Sucharromana-app/static/js/3.dcea035a.chunk.js.map",
     "index.html": "/Sucharromana-app/index.html",
-    "static/css/main.b127db9b.chunk.css.map": "/Sucharromana-app/static/css/main.b127db9b.chunk.css.map",
-    "static/js/2.ffcefcc2.chunk.js.LICENSE.txt": "/Sucharromana-app/static/js/2.ffcefcc2.chunk.js.LICENSE.txt",
+    "static/css/main.d13b3edc.chunk.css.map": "/Sucharromana-app/static/css/main.d13b3edc.chunk.css.map",
+    "static/js/2.0c65cf40.chunk.js.LICENSE.txt": "/Sucharromana-app/static/js/2.0c65cf40.chunk.js.LICENSE.txt",
     "static/media/author.cc084645.jpg": "/Sucharromana-app/static/media/author.cc084645.jpg",
     "static/media/jingle.6a38bd37.mp3": "/Sucharromana-app/static/media/jingle.6a38bd37.mp3",
     "static/media/photo_hero.d2fd3225.png": "/Sucharromana-app/static/media/photo_hero.d2fd3225.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.4cd67e4a.js",
-    "static/js/2.ffcefcc2.chunk.js",
-    "static/css/main.b127db9b.chunk.css",
-    "static/js/main.7f0b33df.chunk.js"
+    "static/js/runtime-main.056acc32.js",
+    "static/js/2.0c65cf40.chunk.js",
+    "static/css/main.d13b3edc.chunk.css",
+    "static/js/main.60f38fbc.chunk.js"
   ]
 }
