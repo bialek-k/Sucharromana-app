@@ -1,46 +1,53 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { questionActions } from "../store/question-slice";
-import { sortActions } from "../store/sort-slice";
 
 const useFetch = () => {
   const dispatch = useDispatch();
-  const [loaded, setLoaded] = useState(false);
-  const idxFromStore = useSelector((state) => state.sort.selectedIdx);
+  const [dataIsLoaded, setDataIsLoaded] = useState(false);
 
   const fetchJoke = async () => {
-    const randomIdx = Math.floor(Math.random() * 171) + 1;
-
     try {
       const response = await fetch(
-        `https://sucharromana-default-rtdb.firebaseio.com/jokes/${randomIdx}.json`
+        `https://sucharromana-default-rtdb.firebaseio.com/jokes.json`
       );
+
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }
 
       const responseData = await response.json();
+      const shortResponse = responseData.slice(-5);
       dispatch(
-        sortActions.getSelectedIdx({
-          selectedIdx: [...idxFromStore, responseData.id],
+        questionActions.getAllJokes({
+          allJokes: shortResponse,
         })
       );
 
+      // generate Random Ids
+      const max = shortResponse.length;
+      let randomId = [];
+      for (let i = 0; i < max; i++) {
+        const randomNumber = Math.floor(Math.random() * max);
+        if (randomId.indexOf(randomNumber) === -1) {
+          randomId.push(randomNumber);
+        } else {
+          i--;
+        }
+      }
       dispatch(
-        questionActions.getRandomJoke({
-          answer: responseData.answer,
-          id: responseData.id,
-          question: responseData.question,
-          url: responseData.url,
+        questionActions.setRandomJokesId({
+          randomJokesId: randomId,
         })
       );
-      setLoaded(true);
     } catch (err) {
       console.log(err);
+    } finally {
+      setDataIsLoaded(true);
     }
   };
 
-  return { fetchJoke, loaded, setLoaded };
+  return { fetchJoke, dataIsLoaded };
 };
 
 export default useFetch;

@@ -2,22 +2,32 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const questionSlice = createSlice({
   name: "question",
-  initialState: { randomJoke: {}, showAnswer: false, reload: false, jokes: [] },
+  initialState: {
+    allJokes: [],
+    showAnswer: false,
+    randomJokesId: [],
+    jokeId: 0,
+    endOfJokes: false,
+  },
   reducers: {
-    getRandomJoke(state, action) {
-      state.randomJoke = {
-        answer: action.payload.answer,
-        id: action.payload.id,
-        question: action.payload.question,
-        url: action.payload.url,
-      };
+    getAllJokes(state, action) {
+      state.allJokes = action.payload.allJokes;
     },
-    getReload(state) {
-      state.reload = !state.reload;
-    },
-
     getAnswer(state) {
       state.showAnswer = !state.showAnswer;
+    },
+    setRandomJokesId(state, action) {
+      state.randomJokesId = action.payload.randomJokesId;
+    },
+    setJokeId(state, action) {
+      state.jokeId = action.payload.jokeId;
+    },
+    setEndOfJokes(state) {
+      state.endOfJokes = !state.endOfJokes;
+    },
+    setReloadApp(state) {
+      state.endOfJokes = false;
+      state.showAnswer = false;
     },
   },
 });
