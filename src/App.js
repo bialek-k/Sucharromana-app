@@ -9,6 +9,7 @@ import classes from "./App.module.css";
 
 import { useSelector } from "react-redux";
 import useFetch from "./hooks/use-fetch";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
@@ -32,6 +33,7 @@ function App() {
             <Header />
             <Question />
             <Answer />
+            <Footer />
           </>
         )}
       </>

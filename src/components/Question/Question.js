@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Howl, Howler } from "howler";
 
@@ -9,6 +9,7 @@ import Jingle from "../../assets/sound/jingle.mp3";
 import { questionActions } from "../../store/question-slice";
 
 const Question = () => {
+  const [disabled, setDisabled] = useState(false);
   const allJokes = useSelector((state) => state.question.allJokes);
   const showAnswer = useSelector((state) => state.question.showAnswer);
   const endOfJokes = useSelector((state) => state.question.endOfJokes);
@@ -23,6 +24,10 @@ const Question = () => {
   }, []);
 
   const showAnswerHandler = () => {
+    setDisabled(true);
+    if (disabled) {
+      return;
+    }
     const sound = new Howl({
       src: Jingle,
     });
@@ -35,6 +40,7 @@ const Question = () => {
           jokeId: jokeId,
         })
       );
+      setDisabled(false);
     }, 1300);
   };
 

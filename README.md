@@ -20,11 +20,9 @@
   </p>
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>Spis Treści</summary>
   <ol>
     <li>
       <a href="#o-projekcie">O projekcie</a>
@@ -33,13 +31,13 @@
       <a href="#wykorzystane-technologie">Wykorzystane Technologie</a></li>
     </li>
     <li><a href="#planowane-aktualizacje">Planowane aktualizacje</a></li>
+    <li><a href="#setup">Setup</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## O projekcie
 
 Na samym początku miałem plan spisać wszystkie suchary Romana do pliku tekstowego i przekazać w prezencie autorowi. Później jednak wpadłem na to, że to dobry pomysł na przetestowanie swojej wiedzy w użytkowaniu React.js
@@ -47,42 +45,60 @@ Na samym początku miałem plan spisać wszystkie suchary Romana do pliku teksto
 Tak oto powstał Suchar Romana
 
 Moje główne założenia projektu:
-* Zaimplementowanie poznanego Redux'a 
-* Odwzorowanie design istniejącej strony <a href="https://www.helloroman.pl">Hello Roman</a> 
-* Napisanie własnych działających Custom Hooks
+
+- Zaimplementowanie poznanego Redux'a
+- Odwzorowanie design istniejącej strony <a href="https://www.helloroman.pl">Hello Roman</a>
+- Napisanie własnych działających Custom Hooks
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Wykorzystane Technologie
 
-Podczas budowy aplkacji wykorzystałem: 
+Podczas budowy aplkacji wykorzystałem:
 
-* React.js
-* Styled-Components
-* Redux Toolkit
-* Firebase
-* Howrl
+- React.js
+- Styled-Components
+- Redux Toolkit
+- Firebase
+- Howrl
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ROADMAP -->
+
 ## Planowane aktualizacje
 
 - [x] Zaimplementowanie losowo wybieranego suchara
-- [x] Stworzenie Custom Hook do pobierania danych 
+- [x] Stworzenie Custom Hook do pobierania danych
 - [x] Dodanie końcowego widoku
-- [ ] Poprawienie stylowania
-- [ ] Przepisanie CSS Modules na Styled-Components 
+- [x] Dodanie informacji w Footer
+- [x] Zablokowanie ponownego wywołania odpowiedzi
+- [ ] Dokończenie Hamburger Menu
+- [ ] Poprawienie pisowni sucharów
+- [ ] implementacja Axios do pobierania danych
+- [ ] Poprawienie stylowania (Mobile first)
+- [ ] Przepisanie CSS Modules na Styled-Components
 - [ ] Dodanie funkcji wyłączenia dźwięku
-- [ ] Dodanie sekcji Footer
 - [ ] Dodanie opcji udostępnienia suchara na Social Media
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- SETUP -->
+
+## Setup
+
+Aby uruchomić projekt użyj:
+
+```
+$ npm install
+$ npm start
+
+```
 
 <!-- CONTACT -->
+
 ## Kontakt
-email: krzysztof.bialek1@gmail.com
+
+email: krzysztof.bialek1@gmail.com | <a href="https://www.linkedin.com/in/bialek-krzysztof">Linkedin</a>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-

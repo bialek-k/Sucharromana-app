@@ -1,0 +1,21 @@
+.wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px;
+}
+.container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.container p {
+  font-size: 0.8rem;
+  color: rgba(58, 58, 58, 0.555);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
