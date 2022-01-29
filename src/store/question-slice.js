@@ -5,49 +5,62 @@ const questionSlice = createSlice({
   initialState: {
     allJokes: [],
     showAnswer: false,
-    randomJokesId: [],
-    jokeId: 0,
-    endOfJokes: false,
+    randomJokeIndexes: [],
+    currentJokeIndex: 0,
+    seenJokesCount: 0,
   },
   reducers: {
-    getAllJokes(state, action) {
+    gotAllJokes(state, action) {
       state.allJokes = action.payload.allJokes;
+      state.randomJokeIndexes = getRandomIndexes(
+        action.payload.allJokes.length
+      );
     },
-    getAnswer(state) {
+    toggleShowAnswer(state) {
       state.showAnswer = !state.showAnswer;
     },
-    setRandomJokesId(state, action) {
-      state.randomJokesId = action.payload.randomJokesId;
+    nextJoke(state) {
+      state.seenJokesCount++;
+      state.currentJokeIndex = state.randomJokeIndexes[state.seenJokesCount];
     },
-    setJokeId(state, action) {
-      state.jokeId = action.payload.jokeId;
-    },
-    setEndOfJokes(state) {
-      state.endOfJokes = !state.endOfJokes;
-    },
-    setReloadApp(state) {
-      state.endOfJokes = false;
-      state.showAnswer = false;
+    reload() {
+      return questionSlice.initialState;
     },
   },
 });
 
-const sendJokeData = () => {
+export const getInitialData = () => {
   return async (dispatch) => {
-    const getRequest = async () => {
-      const response = await fetch(
-        `https://sucharromana-default-rtdb.firebaseio.com/jokes.json`
+    try {
+      const allJokes = await getJokes();
+      dispatch(
+        questionSlice.actions.gotAllJokes({
+          allJokes,
+        })
       );
-      if (!response.ok) {
-        throw new Error("Failed to fetch");
-      }
-      const responseData = await response.json();
-      responseData.shift();
-    };
-
-    await getRequest();
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
+
+const getJokes = async () => {
+  const response = await fetch(
+    "https://sucharromana-default-rtdb.firebaseio.com/jokes.json"
+  );
+  if (!response.ok) {
+    throw new Error("Failed to fetch");
+  }
+  const responseData = await response.json();
+  return responseData.filter((joke) => joke !== null);
+};
+
+const getRandomIndexes = (allJokesLength) => {
+  const allIndexes = Array.from({ length: allJokesLength }, (_, idx) => idx);
+  return randomizeArray(allIndexes);
+};
+
+const randomizeArray = (arr) => arr.slice().sort(() => Math.random() <= 0.5);
 
 export const questionActions = questionSlice.actions;
 export default questionSlice.reducer;

@@ -12,26 +12,16 @@ import useFetch from "./hooks/use-fetch";
 import Footer from "./components/Footer/Footer";
 import { questionActions } from "./store/question-slice";
 
+import { getInitialData } from "./store/question-slice";
+
 function App() {
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
   const endOfJokes = useSelector((state) => state.question.endOfJokes);
-  const { data, dataIsLoaded, randomIds, error } = useFetch();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (data.length) {
-      dispatch(
-        questionActions.getAllJokes({
-          allJokes: data,
-        })
-      );
-      dispatch(
-        questionActions.setRandomJokesId({
-          randomJokesId: randomIds,
-        })
-      );
-    }
-  }, [data]);
+    dispatch(questionActions.getInitialData());
+  }, []);
 
   if (endOfJokes) {
     return <Final />;
@@ -41,14 +31,14 @@ function App() {
     <div className={classes.wrapper}>
       {faqIsVisible && <Faq />}
       <>
-        {dataIsLoaded && (
+        {/* {dataIsLoaded && (
           <>
             <Header />
             <Question />
             <Answer />
             <Footer />
           </>
-        )}
+        )} */}
       </>
     </div>
   );
