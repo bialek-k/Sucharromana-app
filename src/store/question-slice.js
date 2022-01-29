@@ -32,5 +32,22 @@ const questionSlice = createSlice({
   },
 });
 
+const sendJokeData = () => {
+  return async (dispatch) => {
+    const getRequest = async () => {
+      const response = await fetch(
+        `https://sucharromana-default-rtdb.firebaseio.com/jokes.json`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch");
+      }
+      const responseData = await response.json();
+      responseData.shift();
+    };
+
+    await getRequest();
+  };
+};
+
 export const questionActions = questionSlice.actions;
 export default questionSlice.reducer;
