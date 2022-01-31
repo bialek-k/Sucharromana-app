@@ -16,6 +16,9 @@ const Question = () => {
   const currentJokeIndex = useSelector(
     (state) => state.question.currentJokeIndex
   );
+  const randomJokeIndexes = useSelector(
+    (state) => state.question.randomJokeIndexes
+  );
 
   const dispatch = useDispatch();
 
@@ -31,16 +34,14 @@ const Question = () => {
     Howler.volume(0.5);
     sound.play();
     setTimeout(() => {
-      dispatch(questionActions.getAnswer());
       dispatch(questionActions.toggleShowAnswer());
-
       setDisabled(false);
     }, 1300);
   };
 
   const nextJokeHandler = () => {
     if (currentJokeIndex !== allJokes.length) {
-      dispatch(questionActions.getAnswer());
+      dispatch(questionActions.toggleShowAnswer());
       dispatch(questionActions.nextJoke());
     } else {
       dispatch(questionActions.reload());

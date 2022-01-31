@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getInitialData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={classes.wrapper}>
@@ -26,7 +26,9 @@ function App() {
       <>
         {allJokesLength.length && (
           <>
+            <Header />
             <Question />
+            <Answer />
             <Footer />
           </>
         )}
@@ -36,8 +38,3 @@ function App() {
 }
 
 export default App;
-
-/*
-    <Header />
-            <Answer />
-*/

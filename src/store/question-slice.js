@@ -15,7 +15,9 @@ const questionSlice = createSlice({
       state.randomJokeIndexes = getRandomIndexes(
         action.payload.allJokes.length
       );
+      state.currentJokeIndex = state.randomJokeIndexes[state.seenJokesCount];
     },
+
     toggleShowAnswer(state) {
       state.showAnswer = !state.showAnswer;
     },
@@ -38,6 +40,11 @@ export const getInitialData = () => {
           allJokes,
         })
       );
+      console.log(
+        "%cŁatiwej będzie zajrzeć do kodu ⌄ :)  ",
+        "color: black; font-size: 15px; background-color: yellow; padding:10px;"
+      );
+      console.log("https://github.com/bialek-k/Sucharromana-app");
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +67,7 @@ const getRandomIndexes = (allJokesLength) => {
   return randomizeArray(allIndexes);
 };
 
-const randomizeArray = (arr) => arr.slice().sort(() => Math.random() <= 0.5);
+const randomizeArray = (arr) => arr.slice().sort(() => Math.random() - 0.5);
 
 export const questionActions = questionSlice.actions;
 export default questionSlice.reducer;
