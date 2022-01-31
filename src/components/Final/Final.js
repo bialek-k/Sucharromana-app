@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { questionActions } from "../../store/question-slice";
 
 const Final = () => {
-  const randomJokesId = useSelector((state) => state.question.randomJokesId);
+  const seenJokesCount = useSelector((state) => state.question.seenJokesCount);
   const dispatch = useDispatch();
 
   return (
@@ -17,8 +17,8 @@ const Final = () => {
           <h1>Dobrnąłeś do końca sucharów!</h1>
           <p>
             Dziękuję Ci za poswięcony czas, przebrnąłeś przez{" "}
-            <strong>{randomJokesId.length}</strong> sucharów, gdy tylko Roman
-            wymyśli nowego - my go tu dodamy 👌
+            <strong>{seenJokesCount}</strong> sucharów, gdy tylko Roman wymyśli
+            nowego - my go tu dodamy 👌
           </p>
         </div>
         <div className={classes.buttons}>
@@ -29,7 +29,7 @@ const Final = () => {
           />
           <Button
             name={"Jeszcze raz!"}
-            onClick={() => dispatch(questionActions.setReloadApp())}
+            onClick={() => dispatch(questionActions.reload())}
           />
         </div>
       </div>
