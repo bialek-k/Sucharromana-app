@@ -7,7 +7,9 @@ import { useSelector } from "react-redux";
 const Answer = () => {
   const showAnswer = useSelector((state) => state.question.showAnswer);
   const allJokes = useSelector((state) => state.question.allJokes);
-  const jokeId = useSelector((state) => state.question.jokeId);
+  const currentJokeIndex = useSelector(
+    (state) => state.question.currentJokeIndex
+  );
 
   return (
     <>
@@ -18,7 +20,7 @@ const Answer = () => {
               <div className={classes.triangleWrapper}>
                 <div className={classes.triangle}></div>
               </div>
-              <p>{allJokes[jokeId].answer}</p>
+              <p>{allJokes[currentJokeIndex].answer}</p>
             </div>
           </div>
           <div className={classes.photo}>

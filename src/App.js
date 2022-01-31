@@ -1,34 +1,30 @@
+import classes from "./App.module.css";
 import { useEffect } from "react";
 
+import Faq from "./components/Faq/Faq";
 import Header from "./components/Header/Header";
 import Question from "./components/Question/Question";
 import Answer from "./components/Answer/Answer";
-import Faq from "./components/Faq/Faq";
-import Final from "./components/Final/Final";
-import classes from "./App.module.css";
-
-import { useSelector } from "react-redux";
-import useFetch from "./hooks/use-fetch";
 import Footer from "./components/Footer/Footer";
+import Final from "./components/Final/Final";
+
+import { useSelector, useDispatch } from "react-redux";
+import { getInitialData } from "./store/question-slice";
 
 function App() {
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
-  const endOfJokes = useSelector((state) => state.question.endOfJokes);
-  const { fetchJoke, dataIsLoaded } = useFetch();
+  const allJokesLength = useSelector((state) => state.question.allJokes);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchJoke();
-  }, []);
-
-  if (endOfJokes) {
-    return <Final />;
-  }
+    dispatch(getInitialData());
+  }, [dispatch]);
 
   return (
     <div className={classes.wrapper}>
       {faqIsVisible && <Faq />}
       <>
-        {dataIsLoaded && (
+        {allJokesLength.length && (
           <>
             <Header />
             <Question />

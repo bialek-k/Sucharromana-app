@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { questionActions } from "../store/question-slice";
+import { useEffect, useState } from "react";
 
 const useFetch = () => {
-  const dispatch = useDispatch();
+  const [data, setData] = useState([]);
+  const [randomIds, setRandomIds] = useState([]);
   const [dataIsLoaded, setDataIsLoaded] = useState(false);
+  const [error, setError] = useState(null);
 
   const fetchJoke = async () => {
     try {
@@ -18,13 +18,8 @@ const useFetch = () => {
 
       const responseData = await response.json();
       responseData.shift();
-      dispatch(
-        questionActions.getAllJokes({
-          allJokes: responseData,
-        })
-      );
+      setData(responseData);
 
-      // generate Random Ids
       const max = responseData.length;
       let randomId = [];
       for (let i = 0; i < max; i++) {
@@ -35,19 +30,32 @@ const useFetch = () => {
           i--;
         }
       }
-      dispatch(
-        questionActions.setRandomJokesId({
-          randomJokesId: randomId,
-        })
-      );
+      setRandomIds(randomId);
     } catch (err) {
-      console.log(err);
+      setError(err.message);
     } finally {
       setDataIsLoaded(true);
     }
   };
+  useEffect(() => {
+    fetchJoke();
+  }, []);
 
-  return { fetchJoke, dataIsLoaded };
+  return { fetchJoke, data, dataIsLoaded, error, randomIds };
 };
 
 export default useFetch;
+
+/*
+ dispatch(
+        questionActions.getAllJokes({
+          allJokes: responseData,
+        })
+      );
+dispatch(
+        questionActions.setRandomJokesId({
+          randomJokesId: randomId,
+        })
+      );
+
+      */
