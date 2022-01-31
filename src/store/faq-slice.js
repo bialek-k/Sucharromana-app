@@ -10,6 +10,12 @@ const faqSlice = createSlice({
   },
 });
 
+export const showFaq = () => {
+  return (dispatch) => {
+    dispatch(faqSlice.actions.showFaq());
+  };
+};
+
 export const faqActions = faqSlice.actions;
 
 export default faqSlice.reducer;

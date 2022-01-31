@@ -1,33 +1,30 @@
-import { useState, useEffect, useRef } from "react";
+import classes from "./Question.module.css";
+
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { questionActions } from "../../store/question-slice";
 import { Howl, Howler } from "howler";
 
 import Button from "../UI/Button/Button";
 
-import classes from "./Question.module.css";
 import Jingle from "../../assets/sound/jingle.mp3";
-import { questionActions } from "../../store/question-slice";
 
 const Question = () => {
   const [disabled, setDisabled] = useState(false);
   const allJokes = useSelector((state) => state.question.allJokes);
   const showAnswer = useSelector((state) => state.question.showAnswer);
-  const endOfJokes = useSelector((state) => state.question.endOfJokes);
-  const randomStoreIds = useSelector((state) => state.question.randomJokesId);
-  const [final, setFinal] = useState(false);
-  const [count, setCount] = useState(0);
-  const [jokeId, setJokeId] = useState(randomStoreIds[0]);
-  const dispatch = useDispatch();
+  const currentJokeIndex = useSelector(
+    (state) => state.question.currentJokeIndex
+  );
 
-  useEffect(() => {
-    setCount(count + 1);
-  }, []);
+  const dispatch = useDispatch();
 
   const showAnswerHandler = () => {
     setDisabled(true);
     if (disabled) {
       return;
     }
+
     const sound = new Howl({
       src: Jingle,
     });
@@ -35,36 +32,32 @@ const Question = () => {
     sound.play();
     setTimeout(() => {
       dispatch(questionActions.getAnswer());
-      dispatch(
-        questionActions.setJokeId({
-          jokeId: jokeId,
-        })
-      );
+      dispatch(questionActions.toggleShowAnswer());
+
       setDisabled(false);
     }, 1300);
   };
 
   const nextJokeHandler = () => {
-    if (count !== randomStoreIds.length) {
+    if (currentJokeIndex !== allJokes.length) {
       dispatch(questionActions.getAnswer());
-      setCount((prevCount) => count + 1);
-      setJokeId(randomStoreIds[count]);
+      dispatch(questionActions.nextJoke());
     } else {
-      dispatch(questionActions.setEndOfJokes());
+      dispatch(questionActions.reload());
     }
   };
 
   return (
     <div className={classes.question}>
-      <h1>{allJokes[jokeId].question} </h1>
+      <h1>{allJokes[currentJokeIndex].question} </h1>
       <div className={classes.btn}>
         <Button name={"odpowiedź"} onClick={showAnswerHandler} size />
         {showAnswer && (
           <>
             <Button name={"(Next.js) suchar"} onClick={nextJokeHandler} />
             <Button
-              href={allJokes[jokeId].url}
-              name={`Odcinek ${allJokes[jokeId].id} `}
+              href={allJokes[currentJokeIndex].url}
+              name={`Odcinek ${allJokes[currentJokeIndex].id} `}
             />
           </>
         )}
