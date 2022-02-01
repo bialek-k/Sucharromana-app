@@ -18,7 +18,7 @@ const Final = () => {
           <p>
             Dziękuję Ci za poswięcony czas, przebrnąłeś przez{" "}
             <strong>{seenJokesCount}</strong> sucharów, gdy tylko Roman wymyśli
-            nowego - my go tu dodamy 👌
+            nowego - ja go tutaj dodam👌
           </p>
         </div>
         <div className={classes.buttons}>

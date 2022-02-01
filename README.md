@@ -50,7 +50,7 @@ Moje główne założenia projektu:
 - Odwzorowanie design istniejącej strony <a href="https://www.helloroman.pl">Hello Roman</a>
 - Napisanie własnych działających Custom Hooks
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Powrót na górę</a>)</p>
 
 ### Wykorzystane Technologie
 
@@ -62,26 +62,25 @@ Podczas budowy aplkacji wykorzystałem:
 - Firebase
 - Howrl
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Powrót na górę</a>)</p>
 
 <!-- ROADMAP -->
 
 ## Planowane aktualizacje
 
 - [x] Zaimplementowanie losowo wybieranego suchara
-- [x] Stworzenie Custom Hook do pobierania danych
+- [x] Przeniesienie logiki pobierania danych do Redux
 - [x] Dodanie końcowego widoku
 - [x] Dodanie informacji w Footer
 - [x] Zablokowanie ponownego wywołania odpowiedzi
+- [x] Dodanie funkcji wyłączenia dźwięku
 - [ ] Dokończenie Hamburger Menu
-- [ ] Poprawienie pisowni sucharów
-- [ ] implementacja Axios do pobierania danych
-- [ ] Poprawienie stylowania (Mobile first)
-- [ ] Przepisanie CSS Modules na Styled-Components
-- [ ] Dodanie funkcji wyłączenia dźwięku
+- [ ] Dodanie możliwości wystawainia ocen dla suchara
 - [ ] Dodanie opcji udostępnienia suchara na Social Media
+- [ ] Poprawienie pisowni sucharów
+- [ ] Poprawienie stylowania (Mobile first)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Powrót na górę</a>)</p>
 
 <!-- SETUP -->
 
@@ -101,4 +100,4 @@ $ npm start
 
 email: krzysztof.bialek1@gmail.com | <a href="https://www.linkedin.com/in/bialek-krzysztof">Linkedin</a>
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Powrót na górę</a>)</p>
