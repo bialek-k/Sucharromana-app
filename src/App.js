@@ -13,18 +13,23 @@ import { getInitialData } from "./store/question-slice";
 
 function App() {
   const faqIsVisible = useSelector((state) => state.faq.faqIsVisible);
-  const allJokesLength = useSelector((state) => state.question.allJokes);
+  const allJokes = useSelector((state) => state.question.allJokes);
+  const seenJokesCount = useSelector((state) => state.question.seenJokesCount);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getInitialData());
   }, [dispatch]);
 
+  if (seenJokesCount === allJokes.length && allJokes.length) {
+    return <Final />;
+  }
+
   return (
     <div className={classes.wrapper}>
       {faqIsVisible && <Faq />}
       <>
-        {allJokesLength.length && (
+        {allJokes.length && (
           <>
             <Header />
             <Question />
