@@ -1,6 +1,6 @@
 import classes from "./Question.module.css";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { questionActions } from "../../store/question-slice";
 import { Howl, Howler } from "howler";
@@ -9,7 +9,6 @@ import Button from "../UI/Button/Button";
 import Speaker from "../Speaker/Speaker";
 
 import Jingle from "../../assets/sound/jingle.mp3";
-import { current } from "@reduxjs/toolkit";
 
 const Question = () => {
   const [disabled, setDisabled] = useState(false);

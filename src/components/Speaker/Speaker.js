@@ -1,4 +1,3 @@
-import { useState } from "react";
 import classes from "./Speaker.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
