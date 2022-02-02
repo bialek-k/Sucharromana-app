@@ -1,4 +1,5 @@
 import classes from "./Question.module.css";
+import shortURL from "../../helpers/shortURL";
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,6 +20,12 @@ const Question = () => {
     (state) => state.question.currentJokeIndex
   );
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const shortedArr = shortURL(allJokes, "https://www.youtube.com/watch?v=");
+
+    console.log(shortedArr);
+  }, []);
 
   const soundHandler = () => {
     setSound((prevState) => !prevState);

@@ -1,6 +1,5 @@
 const shortURL = (arr, baseURL) => {
   const urlToRemove = Array.from(baseURL);
-
   const shortedURL = arr.map((joke) => {
     const url = Array.from(joke.url);
     url.splice(0, urlToRemove.length);
@@ -15,3 +14,5 @@ const shortURL = (arr, baseURL) => {
 
   return shortedURL;
 };
+
+export default shortURL;
