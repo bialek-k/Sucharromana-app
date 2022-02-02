@@ -1,6 +1,6 @@
 import classes from "./Question.module.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { questionActions } from "../../store/question-slice";
 import { Howl, Howler } from "howler";
@@ -18,6 +18,8 @@ const Question = () => {
   const currentJokeIndex = useSelector(
     (state) => state.question.currentJokeIndex
   );
+  const url = `https://youtu.be/${allJokes[currentJokeIndex].urlID}`;
+
   const dispatch = useDispatch();
 
   const soundHandler = () => {
@@ -68,7 +70,7 @@ const Question = () => {
           <>
             <Button name={"(Next.js) suchar"} onClick={nextJokeHandler} />
             <Button
-              href={allJokes[currentJokeIndex].url}
+              href={url}
               name={`Odcinek ${allJokes[currentJokeIndex].id} `}
             />
           </>

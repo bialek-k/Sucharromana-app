@@ -40,11 +40,6 @@ export const getInitialData = () => {
           allJokes,
         })
       );
-      console.log(
-        "%cŁatiwej będzie zajrzeć do kodu ⌄ :)  ",
-        "color: black; font-size: 15px; background-color: yellow; padding:10px;"
-      );
-      console.log("https://github.com/bialek-k/Sucharromana-app");
     } catch (error) {
       console.log(error);
     }
@@ -53,13 +48,14 @@ export const getInitialData = () => {
 
 const getJokes = async () => {
   const response = await fetch(
-    "https://sucharromana-default-rtdb.firebaseio.com/jokes.json"
+    "https://sucharromana-default-rtdb.firebaseio.com/.json"
   );
   if (!response.ok) {
     throw new Error("Failed to fetch");
   }
   const responseData = await response.json();
-  return responseData.filter((joke) => joke !== null);
+  // return responseData;
+  return responseData.filter((joke) => joke.answer !== ":(");
 };
 
 const getRandomIndexes = (allJokesLength) => {
