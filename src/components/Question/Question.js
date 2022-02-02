@@ -1,5 +1,4 @@
 import classes from "./Question.module.css";
-import shortURL from "../../helpers/shortURL";
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,13 +18,9 @@ const Question = () => {
   const currentJokeIndex = useSelector(
     (state) => state.question.currentJokeIndex
   );
+  const url = `https://youtu.be/${allJokes[currentJokeIndex].urlID}`;
+
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const shortedArr = shortURL(allJokes, "https://www.youtube.com/watch?v=");
-
-    console.log(shortedArr);
-  }, []);
 
   const soundHandler = () => {
     setSound((prevState) => !prevState);
@@ -75,7 +70,7 @@ const Question = () => {
           <>
             <Button name={"(Next.js) suchar"} onClick={nextJokeHandler} />
             <Button
-              href={allJokes[currentJokeIndex].url}
+              href={url}
               name={`Odcinek ${allJokes[currentJokeIndex].id} `}
             />
           </>

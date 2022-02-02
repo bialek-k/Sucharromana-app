@@ -12,7 +12,7 @@
     "urlID": "FeZHLSBbniI"
   },
   {
-    "answer": "Remount",
+    "answer": "REMOUNT",
     "id": 3,
     "question": "Co robi komponent, który zmienia dom",
     "urlID": "FeZHLSBbniI"
@@ -42,7 +42,7 @@
     "urlID": "NY_EuoQr1qw"
   },
   {
-    "answer": "myhe jiry",
+    "answer": "myje jiry",
     "id": 8,
     "question": "Co robi Scrum Master po sprincie ?",
     "urlID": "wMXViUU8i5s"
@@ -50,7 +50,7 @@
   {
     "answer": "z(mute)wanych żółwi ninja",
     "id": 9,
-    "question": "Kogo nigdy nie słychać na wideo-konferencjach?",
+    "question": "Kogo nigdy nie słychać na wideo konferencjach?",
     "urlID": "vRqvaTasYZc"
   },
   {
@@ -61,9 +61,9 @@
   },
   {
     "answer": "Bo mają Hamburger Menu",
-    "id": 12,
+    "id": 11,
     "question": "Dlaczego frontendowcom najłatwiej jest zamówić jedzenie z McDonald's",
-    "urlID": ""
+    "urlID": "IZ2hlceqEA"
   },
   {
     "answer": "Pull'uje mastera",
@@ -72,7 +72,7 @@
     "urlID": "b2WiSq1KL3Y"
   },
   {
-    "answer": "po wprowadzono () => {}",
+    "answer": "bo wprowadzono () => {}",
     "id": 13,
     "question": "Dlaczego nowa składania JavaScript została doceniona przez środowisko łuczników",
     "urlID": "om4HQYXgZog&"
@@ -110,20 +110,20 @@
   {
     "answer": "DEVO-psem",
     "id": 19,
-    "question": "Kim byłaby Fawa, gdyby pracowała w IT",
+    "question": "Kim byłaby Fava, gdyby pracowała w IT",
     "urlID": "98_SpBGJm10"
   },
   {
     "answer": ":(",
     "id": 20,
-    "question": "Tu roman zapomniał o sucharku :(",
-    "urlID": "aI-lp1J3Kjo"
+    "question": "no data",
+    "urlID": "no data"
   },
   {
     "answer": ":(",
     "id": 21,
-    "question": "Tu roman zapomniał o sucharku :(",
-    "urlID": "L2EBnZKo3UE&"
+    "question": "no data",
+    "urlID": "no data"
   },
   {
     "answer": "ŻabaScript",
@@ -152,11 +152,11 @@
   {
     "answer": ":(",
     "id": 26,
-    "question": "Tu roman zapomniał o sucharku :(",
+    "question": "no data",
     "urlID": "YmxVN24tbeQ&"
   },
   {
-    "answer": "hasło do kompa",
+    "answer": "Hasło do kompa",
     "id": 27,
     "question": "Co informatyk ma długiego, i mówią że nie da się tego złamać? ",
     "urlID": "RW9lvhvVqw4&"
@@ -486,7 +486,7 @@
     "urlID": "coWyrgUMXhY"
   },
   {
-    "answer": "carbonara",
+    "answer": "Carbonara",
     "id": 83,
     "question": "Co mówi osoba, która żegna się z węglowodanami?",
     "urlID": "oL2xkGjhlx8&"
@@ -582,10 +582,10 @@
     "urlID": "vYl_dCNUK7U"
   },
   {
-    "answer": "bez suchara",
+    "answer": ":(",
     "id": 99,
-    "question": "Bez suchara",
-    "urlID": "UCq8XmOMtrUCb8FcFHQEd8_g"
+    "question": "no data",
+    "urlID": "no data"
   },
   {
     "answer": "do Grypindoru",
@@ -624,10 +624,10 @@
     "urlID": "38S-mc9PB68"
   },
   {
-    "answer": "Brak Suchara",
+    "answer": ":(",
     "id": 106,
-    "question": "Brak Suchara",
-    "urlID": "UCq8XmOMtrUCb8FcFHQEd8_g"
+    "question": "no data",
+    "urlID": "no data"
   },
   {
     "answer": "RUMCA.JS",
@@ -786,7 +786,7 @@
     "urlID": "1FzTYmb_n0Y"
   },
   {
-    "answer": "... Mój dom, w którym piszę od lat ...",
+    "answer": "... Mój DOM, w którym piszę od lat ...",
     "id": 133,
     "question": "Ulubiona piosenka Frontendowców?",
     "urlID": "O5sRr9lDDMY"
@@ -834,10 +834,10 @@
     "urlID": "vDgxSsJY0fk"
   },
   {
-    "answer": "Suchara Brak",
+    "answer": ":(",
     "id": 141,
-    "question": "Suchara Brak",
-    "urlID": "eA18dQIF56I"
+    "question": "no data",
+    "urlID": "no data"
   },
   {
     "answer": "Powoli wysycha",
@@ -852,10 +852,10 @@
     "urlID": "K7jvFMriPMU&"
   },
   {
-    "answer": "Suchara Brak",
+    "answer": ":(",
     "id": 144,
-    "question": "Suchara Brak",
-    "urlID": "UCq8XmOMtrUCb8FcFHQEd8_g"
+    "question": "no data",
+    "urlID": "no data"
   },
   {
     "answer": "Capslokiem",
@@ -1024,5 +1024,23 @@
     "id": 172,
     "question": "Ulubiony taniec piekarzy?",
     "urlID": "a796Ii5v_fs"
+  },
+  {
+    "answer": "Hey Siri",
+    "id": 173,
+    "question": "Co mówi Gerald, kiedy chce o coś zapytać?",
+    "urlID": "T8gRsRcbeUU"
+  },
+  {
+    "answer": "be Carrefour",
+    "id": 174,
+    "question": "Co mówi pracownik supermarketu, kiedy prosi o ostrożność?",
+    "urlID": "DFyVgCc-vB4"
+  },
+  {
+    "answer": "Cieciorka",
+    "id": 175,
+    "question": "Jak się nazywa orka, która pilnuje budynków?",
+    "urlID": "7_wy9hN5qpk"
   }
 ]
