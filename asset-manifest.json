@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Sucharromana-app/static/css/main.1e6d2542.chunk.css",
-    "main.js": "/Sucharromana-app/static/js/main.2d07ada9.chunk.js",
-    "main.js.map": "/Sucharromana-app/static/js/main.2d07ada9.chunk.js.map",
+    "main.js": "/Sucharromana-app/static/js/main.38b30653.chunk.js",
+    "main.js.map": "/Sucharromana-app/static/js/main.38b30653.chunk.js.map",
     "runtime-main.js": "/Sucharromana-app/static/js/runtime-main.c6292a83.js",
     "runtime-main.js.map": "/Sucharromana-app/static/js/runtime-main.c6292a83.js.map",
     "static/js/2.b58580e5.chunk.js": "/Sucharromana-app/static/js/2.b58580e5.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.c6292a83.js",
     "static/js/2.b58580e5.chunk.js",
     "static/css/main.1e6d2542.chunk.css",
-    "static/js/main.2d07ada9.chunk.js"
+    "static/js/main.38b30653.chunk.js"
   ]
 }
