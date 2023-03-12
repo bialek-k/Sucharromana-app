@@ -1,6 +1,6 @@
 import classes from "./Question.module.css";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { questionActions } from "../../store/question-slice";
 import { Howl, Howler } from "howler";

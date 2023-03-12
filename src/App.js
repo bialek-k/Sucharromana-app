@@ -29,14 +29,14 @@ function App() {
     <div className={classes.wrapper}>
       {faqIsVisible && <Faq />}
       <>
-        {allJokes.length && (
+        {allJokes.length > 0 ? (
           <>
             <Header />
             <Question />
             <Answer />
             <Footer />
           </>
-        )}
+        ) : null}
       </>
     </div>
   );

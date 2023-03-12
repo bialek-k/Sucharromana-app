@@ -54,7 +54,6 @@ const getJokes = async () => {
     throw new Error("Failed to fetch");
   }
   const responseData = await response.json();
-  // return responseData;
   return responseData.filter((joke) => joke.answer !== ":(");
 };
 
