@@ -11,26 +11,25 @@
   <h3 align="center">Suchar Romana</h3>
 
   <p align="center">
-    Aplikacja z wszystkimi sucharami Romana, jakie padły na kanale <a href="https://www.youtube.com/c/helloroman">HelloRoman</a>
+   a simple app with all the jokes that have been said on the helloroman channel <a href="https://www.youtube.com/c/helloroman">HelloRoman</a>
     <br />
     <br />
     ·
-    <a href="https://bialek-k.github.io/Sucharromana-app/">Zobacz Demo</a>
+    <a href="https://bialek-k.github.io/Sucharromana-app/">Live</a>
     ·
   </p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Spis Treści</summary>
+  <summary>Table of contents</summary>
   <ol>
     <li>
-      <a href="#o-projekcie">O projekcie</a>
+      <a href="#about-the-project">About the project</a>
     </li>
     <li>
-      <a href="#wykorzystane-technologie">Wykorzystane Technologie</a></li>
+      <a href="#technologies">Technologies</a></li>
     </li>
-    <li><a href="#planowane-aktualizacje">Planowane aktualizacje</a></li>
     <li><a href="#setup">Setup</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -38,23 +37,19 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## O projekcie
+## About the project
 
-Na samym początku miałem plan spisać wszystkie suchary Romana do pliku tekstowego i przekazać w prezencie autorowi. Później jednak wpadłem na to, że to dobry pomysł na przetestowanie swojej wiedzy w użytkowaniu React.js
+At the very beginning, I had a plan to write down all of Roman's jokes into a .txt file and give it as a gift to the author. However, later on, I realized that it was a good idea to test my knowledge of using React.js.
 
-Tak oto powstał Suchar Romana
+The main assumptions of the project:
 
-Moje główne założenia projektu:
+- Implementing the learned Redux library.
+- Mapping the design of an existing website <a href="https://www.helloroman.pl">Hello Roman</a>
+- Making own working Custom Hooks
 
-- Zaimplementowanie poznanego Redux'a
-- Odwzorowanie design istniejącej strony <a href="https://www.helloroman.pl">Hello Roman</a>
-- Napisanie własnych działających Custom Hooks
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
-<p align="right">(<a href="#top">Powrót na górę</a>)</p>
-
-### Wykorzystane Technologie
-
-Podczas budowy aplkacji wykorzystałem:
+### Technologies
 
 - React.js
 - Styled-Components
@@ -62,31 +57,13 @@ Podczas budowy aplkacji wykorzystałem:
 - Firebase
 - Howrl
 
-<p align="right">(<a href="#top">Powrót na górę</a>)</p>
-
-<!-- ROADMAP -->
-
-## Planowane aktualizacje
-
-- [x] Zaimplementowanie losowo wybieranego suchara
-- [x] Przeniesienie logiki pobierania danych do Redux
-- [x] Dodanie końcowego widoku
-- [x] Dodanie informacji w Footer
-- [x] Zablokowanie ponownego wywołania odpowiedzi
-- [x] Dodanie funkcji wyłączenia dźwięku
-- [ ] Dokończenie Hamburger Menu
-- [ ] Dodanie możliwości wystawainia ocen dla suchara
-- [ ] Dodanie opcji udostępnienia suchara na Social Media
-- [ ] Poprawienie pisowni sucharów
-- [ ] Poprawienie stylowania (Mobile first)
-
-<p align="right">(<a href="#top">Powrót na górę</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
 <!-- SETUP -->
 
 ## Setup
 
-Aby uruchomić projekt użyj:
+run locally 
 
 ```
 $ npm install
@@ -96,8 +73,8 @@ $ npm start
 
 <!-- CONTACT -->
 
-## Kontakt
+## Contact
 
-email: krzysztof.bialek1@gmail.com | <a href="https://www.linkedin.com/in/bialek-krzysztof">Linkedin</a>
+email: bialekdev@gmail.com | <a href="https://www.linkedin.com/in/bialek-krzysztof">Linkedin</a>
 
-<p align="right">(<a href="#top">Powrót na górę</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
